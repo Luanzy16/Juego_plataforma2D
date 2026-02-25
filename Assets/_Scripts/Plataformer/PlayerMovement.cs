@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    private OldInput _oldInput;
+    private NewInput _newInput;
     public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        _oldInput = GetComponent<OldInput>();
+        PlayerStats.score = 0;
+        _newInput = GetComponent<NewInput>();
     }
 
     // Update is called once per frame
@@ -21,6 +22,6 @@ public class PlayerMovement : MonoBehaviour
 
     public void Movement()
     {
-        transform.Translate(Vector3.right * _oldInput.horizontal * speed * Time.deltaTime);
+        transform.Translate(Vector3.right * _newInput.inputX * speed * Time.deltaTime);
     }
 }
